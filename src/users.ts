@@ -15,10 +15,6 @@ type Error = {
 const users: User[] = []
 
 const addUser = ({id, name, room}: User): NewUser | Error => {
-    const numberOfUsersInRoom = users.filter(user => user.room === room).length
-    if (numberOfUsersInRoom === 2)
-        return {error: 'Room full'}
-
     const newUser = {id, name, room}
     users.push(newUser)
     return {newUser}
