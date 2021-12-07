@@ -1,4 +1,4 @@
-import { Color } from "../models/color";
+import { Color } from "../enums/color";
 
 export const cards = [
     {

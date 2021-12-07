@@ -1,4 +1,4 @@
-import { Color } from "./color";
+import { Color } from "../enums/color";
 import { Digit } from "./types";
 
 export default class Card {
