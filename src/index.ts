@@ -14,8 +14,8 @@ const index = http.createServer(app)
 const io = new Server(index)
 
 app.use(cors())
-io.on('connection', socket => {
-    socket.on('join', (payload, callback) => {
+io.on('connection', (socket: any) => {
+    socket.on('join', (payload: any, callback: any) => {
         console.log(payload);
         // @ts-ignore
         const {error, newUser}: User | Error = addUser({
@@ -35,7 +35,7 @@ io.on('connection', socket => {
         callback()
     })
 
-    socket.on('sendMessage', (payload, callback) => {
+    socket.on('sendMessage', (payload: any, callback: any) => {
         const user = getUser(socket.id)
         // @ts-ignore
         io.to(user.room).emit('message', {user: user.name, text: payload.message})
@@ -49,7 +49,7 @@ io.on('connection', socket => {
     })
 })
 
-app.get('*', (req, res) => {
+app.get('*', (req: any, res: any) => {
     res.sendFile(path.resolve(__dirname, 'index.html'))
 })
 
