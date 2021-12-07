@@ -1,12 +1,12 @@
-import { v4 as uuid } from 'uuid';
 import Card from './card';
 
 export default class Player {
     name: string;
-    uuid: string = uuid()
+    socketId: string;
     cards: Card[] = []
 
-    constructor(name: string) {
+    constructor(name: string,socketId:string) {
         this.name = name;
+        this.socketId = socketId
     }
 }
